@@ -1,0 +1,60 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# WealthLens — Docker Compose
+#
+# Development:   docker compose up
+# Production:    docker compose -f docker-compose.yml up --build
+# ─────────────────────────────────────────────────────────────────────────────
+
+version: "3.9"
+
+services:
+
+  # ── FastAPI Backend ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context:    ./backend
+      dockerfile: Dockerfile
+    container_name: wealthlens-api
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      - DEBUG=false
+      - ALLOWED_ORIGINS=["http://localhost", "http://frontend"]
+    ports:
+      - "8000:8000"
+    volumes:
+      # Hot-reload in dev: comment out for prod
+      - ./backend:/app
+    networks:
+      - wealthlens
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # ── React Frontend ───────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context:    ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_SUPABASE_URL:    ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
+        VITE_API_BASE_URL:    ""   # nginx proxies /api/* → backend
+    container_name: wealthlens-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - wealthlens
+
+networks:
+  wealthlens:
+    driver: bridge

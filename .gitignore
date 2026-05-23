@@ -1,0 +1,174 @@
+# =========================================================
+# WealthLens / FastAPI + React + Docker + Supabase
+# Secure .gitignore
+# =========================================================
+
+
+# =========================================================
+# ENV / Secrets
+# =========================================================
+.env
+.env.*
+!.env.example
+
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+
+# =========================================================
+# Python
+# =========================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.pyo
+*.pyd
+*.so
+
+.python-version
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Build / packaging
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Pip cache
+pip-wheel-metadata/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage / testing
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+
+# Mypy / Ruff / lint
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# =========================================================
+# Node / React / Vite
+# =========================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+vite.svg
+
+
+# =========================================================
+# IDE / Editor
+# =========================================================
+.vscode/
+.idea/
+
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*~
+
+
+# =========================================================
+# OS Files
+# =========================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# =========================================================
+# Docker
+# =========================================================
+docker-data/
+*.pid
+
+
+# =========================================================
+# Logs
+# =========================================================
+logs/
+*.log
+
+
+# =========================================================
+# Runtime / Temp
+# =========================================================
+tmp/
+temp/
+.cache/
+
+
+# =========================================================
+# SQLite / local DBs
+# =========================================================
+*.sqlite3
+*.db
+
+
+# =========================================================
+# Secrets / Keys / Credentials
+# =========================================================
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+
+
+# =========================================================
+# AI / Model / Large files
+# =========================================================
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.bin
+
+
+# =========================================================
+# Keep examples + docs
+# =========================================================
+!README.md
+!docs/
