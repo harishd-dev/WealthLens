@@ -172,3 +172,80 @@ credentials/
 # =========================================================
 !README.md
 !docs/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+
+# SQLite / Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# =========================
+# Node / React / Vite
+# =========================
+node_modules/
+dist/
+coverage/
+
+# Vite
+vite.svg
+
+# npm / yarn / pnpm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Build / Cache
+# =========================
+.cache/
+.temp/
+tmp/
+*.cache
+
+# =========================
+# Uploads / Generated Files
+# =========================
+uploads/
+generated/
